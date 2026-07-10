@@ -27,17 +27,17 @@
 
                 color:white;
 
-                overflow-x: hidden;
-                overflow-y: hidden;
+                overflow-x:hidden;
+                overflow-y:auto;
             }
 
             /* ========== SECTION CONTACT ========== */
             .section-contact{
                 position:relative;
-                padding:80px 20px;
+                padding:90px 20px 40px;
+                min-height:100vh;
                 overflow:hidden;
             }
-
             .section-contact::before{
                 content:"";
                 position:absolute;
@@ -67,7 +67,7 @@
             /* ========== CONTACT CONTAINER ========== */
             .contact-container{
                 position:relative;
-                bottom: 25px;
+                transform:translateY(-15px);
                 z-index: 2;
 
                 max-width:600px;
@@ -92,7 +92,7 @@
 
             /* ========== CONTACT TITLE ========== */
             .contact-title{
-                font-size:2rem;
+                font-size:1.7rem;
                 margin-bottom:10px;
 
                 background:linear-gradient(135deg,#fff,#F7C56E);
