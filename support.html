@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Վանաձորի N4 Դպրոց — Պաշտոնական Կայք (Թեստ)</title>
+    
+
+    <style>
+            /* ========== BODY ========== */
+            body{
+                margin:0;
+                font-family:'Segoe UI',sans-serif;
+
+                background:
+                radial-gradient(circle at top,
+                    rgba(247,197,110,.12),
+                    transparent 35%),
+                linear-gradient(
+                    180deg,
+                    #081728 0%,
+                    #0B1F3B 25%,
+                    #12315E 60%,
+                    #1E3A8A 100%
+                );
+
+                color:white;
+
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
+
+            /* ========== SECTION CONTACT ========== */
+            .section-contact{
+                position:relative;
+                padding:80px 20px;
+                overflow:hidden;
+            }
+
+            .section-contact::before{
+                content:"";
+                position:absolute;
+                top:-220px;
+                left:50%;
+                transform:translateX(-50%);
+
+                width:500px;
+                height:500px;
+
+                border-radius:50%;
+
+                background:radial-gradient(circle,
+                rgba(247,197,110,.18),
+                transparent 70%);
+            }
+
+            button:focus,
+            .menu_square:focus,
+            .menu_square:focus-visible,
+            #Select_Language:focus,
+            #Select_Language:focus-visible {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+            /* ========== CONTACT CONTAINER ========== */
+            .contact-container{
+                position:relative;
+                bottom: 25px;
+                z-index: 2;
+
+                max-width:600px;
+                margin:auto;
+
+                background:rgba(255,255,255,.08);
+
+                backdrop-filter:blur(18px);
+                -webkit-backdrop-filter:blur(18px);
+
+                border:1px solid rgba(255,255,255,.15);
+
+                border-radius:28px;
+
+                padding:35px 25px;
+
+                box-shadow:
+                0 20px 45px rgba(0,0,0,.35);
+
+                text-align:center;
+            }
+
+            /* ========== CONTACT TITLE ========== */
+            .contact-title{
+                font-size:2rem;
+                margin-bottom:10px;
+
+                background:linear-gradient(135deg,#fff,#F7C56E);
+
+                -webkit-background-clip:text;
+                background-clip:text;
+
+                color:transparent;
+            }
+
+            /* ========== CONTACT SUBTITLE ========== */
+            .contact-subtitle{
+                color:rgba(255,255,255,.8);
+                margin-bottom:30px;
+            }
+
+            /* ========== CONTACT FORM ========== */
+            .contact-form{
+                text-align:left;
+            }
+
+            /* ========== FORM GROUP ========== */
+            .form-group{
+                margin-bottom:18px;
+            }
+
+            /* ========== FORM LABEL ========== */
+            .form-label{
+                display:block;
+                margin-bottom:8px;
+                font-weight:600;
+            }
+
+            /* ========== FORM INPUT & TEXTAREA ========== */
+            .form-input,
+            .form-textarea{
+
+                width:100%;
+
+                padding:14px 16px;
+
+                border-radius:14px;
+
+                border:1px solid rgba(255,255,255,.18);
+
+                background:rgba(255,255,255,.08);
+
+                backdrop-filter:blur(8px);
+
+                color:white;
+
+                font-size:1rem;
+
+                box-sizing:border-box;
+
+                transition:.25s;
+            }
+
+            .form-input::placeholder,
+            .form-textarea::placeholder{
+                color:rgba(255,255,255,.45);
+            }
+
+            .form-input:focus,
+            .form-textarea:focus{
+
+                outline:none;
+
+                border-color:#F7C56E;
+
+                box-shadow:0 0 18px rgba(247,197,110,.3);
+            }
+
+            /* ========== FORM TEXTAREA ========== */
+            .form-textarea{
+
+                resize:vertical;
+
+                min-height:130px;
+
+                font-family:inherit;
+            }
+
+            /* ========== FORM SUBMIT ========== */
+            .form-submit{
+
+                width:100%;
+
+                margin-top:10px;
+
+                padding:15px;
+
+                border:none;
+
+                border-radius:40px;
+
+                background:linear-gradient(
+                135deg,
+                #FFD978,
+                #F7C56E);
+
+                color:#0B1F3B;
+
+                font-size:1.05rem;
+
+                font-weight:700;
+
+                cursor:pointer;
+
+                transition:.25s;
+            }
+
+            .form-submit:hover{
+
+                transform:translateY(-2px);
+
+                box-shadow:0 10px 25px rgba(247,197,110,.35);
+            }
+
+            .form-submit:active{
+                transform:scale(.98);
+            }
+
+            /* ========== CONTACT INFO ========== */
+            .contact-info{
+
+                margin-top:35px;
+
+                text-align:center;
+
+                color:rgba(255,255,255,.82);
+
+                line-height:1.8;
+
+                font-size:.95rem;
+            }
+
+                    .background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at top,
+                rgba(0,0,0,.2),
+                rgba(0,0,0,.55)
+            );
+        }
+
+        /* ========== TOP BAR CONTAINER ========== */
+        .top-bar {
+            position: fixed;
+            top: 16px;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 1000;
+            gap: 10px;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            flex: 1;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px 0 16px;
+            gap: 8px;
+            max-width: 65%;
+        }
+
+        .nav_logo {
+            height: 46px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav_number {
+            background: linear-gradient(135deg, #0B1F3B, #1E3A8A);
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* ========== MENU SQUARE ========== */
+        .menu_square {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 2005;
+            flex-shrink: 0;
+        }
+
+        .menu_square span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* ========== LANGUAGE BUTTON ========== */
+        #Select_Language {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2005;
+            flex-shrink: 0;
+        }
+
+        /* ========== LANGUAGE DROPDOWN ========== */
+        #languageMenu {
+            position: fixed;
+            top: 75px;
+            right: 16px;
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(11, 31, 59, 0.95);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 8px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1002;
+            min-width: 130px;
+        }
+
+        #languageMenu button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px 12px;
+            cursor: pointer;
+            border-radius: 13px;
+            text-align: left;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        #languageMenu button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .language-selected {
+            background: rgba(255, 255, 255, 0.2) !important;
+            font-weight: bold;
+        }
+
+        .language-selected::after {
+            content: "✓";
+            margin-left: auto;
+            color: #7CFF7C;
+            font-weight: bold;
+        }
+
+        #languageMenu button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ========== MOBILE MENU PANEL ========== */
+        #mobileMenu {
+            position: fixed;
+            top: 0;
+            right: -260px;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(11, 31, 59, 0.95), rgba(20, 40, 80, 0.9));
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 90px;
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #mobileMenu.open {
+            right: 0;
+            Z-index: 2004;
+        }
+
+        #mobileMenu a {
+            padding: 14px 20px;
+            margin: 0 12px;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        #mobileMenu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 998;
+        }
+
+        #overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+            
+    </style>
+</head>
+
+<body>
+
+<div class="top-bar">
+    <button id="Select_Language" onclick="toggleLanguage()">🌐</button>
+    <div class="menu_square" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<!-- ====== MOBILE MENU ====== -->
+<div id="mobileMenu">
+    <a href="index.html">🏠 Գլխավոր</a>
+    <a href="#">📚 Դասացուցակ</a>
+    <a href="#">👨‍🏫 Ուսուցիչներ</a>
+    <a href="#">📞 Կապ</a>
+</div>
+
+<!-- ====== OVERLAY ====== -->
+<div id="overlay"></div>
+
+<!-- ====== LANGUAGE DROPDOWN ====== -->
+<div id="languageMenu">
+    <button id="hyBtn" onclick="setLanguage('hy')" class="language-selected">🇦🇲 Հայերեն</button>
+    <button id="ruBtn" onclick="setLanguage('ru')">🇷🇺 Русский</button>
+</div>
+
+<!-- ====== CONTACT SECTION ====== -->
+<div class="section-contact">
+    <div class="contact-container">
+        <h2 class="contact-title">📩 Կապ մեզ հետ</h2>
+        <p class="contact-subtitle">Լրացրեք ձևը և մենք կպատասխանենք որքան հնարավոր է շուտ</p>
+        
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Շնորհակալություն! Ձեր հաղորդագրությունն ուղարկված է։');">
+            <div class="form-group">
+                <label class="form-label">Անուն</label>
+                <input type="text" class="form-input" placeholder="Ձեր անունը" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Էլ․ հասցե</label>
+                <input type="email" class="form-input" placeholder="Ձեր էլ․ հասցեն" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Հաղորդագրություն</label>
+                <textarea rows="4" class="form-textarea" placeholder="Ձեր հաղորդագրությունը..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Ուղարկել →</button>
+        </form>
+    </div>
+</div>
+
+<script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                overlay.classList.remove('active');
+            });
+        });
+
+        function toggleLanguage() {
+            const menu = document.getElementById('languageMenu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function setLanguage(lang) {
+            document.getElementById('hyBtn').classList.remove('language-selected');
+            document.getElementById('ruBtn').classList.remove('language-selected');
+            if (lang === 'hy') document.getElementById('hyBtn').classList.add('language-selected');
+            if (lang === 'ru') document.getElementById('ruBtn').classList.add('language-selected');
+            document.getElementById('languageMenu').style.display = 'none';
+        }
+
+        document.addEventListener('click', (e) => {
+            const langBtn = document.getElementById('Select_Language');
+            const langMenu = document.getElementById('languageMenu');
+            if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                langMenu.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
