@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Վանաձորի N4 Դպրոց — Պաշտոնական Կայք (Թեստ)</title>
+    <title>Վանաձորի Ա․Ս․ Պուշկինի անվան N4 հիմնական դպրոց — Պաշտոնական կայք</title>
     
     <link rel="icon" href="https://learning.digicraft.am/pages/uploads/n4schooltest1/images/Slogo.png" type="image/png">
     <meta name="description" content="Վանաձորի Ա. Ս. Պուշկինի անվան N4 հիմնական դպրոցի պաշտոնական կայքը:">
     <meta name="keywords" content="Վանաձոր, N4 դպրոց, Պուշկինի անվան, հիմնական դպրոց, կրթություն">
-    <meta name="author" content="Վանաձորի N4 Դպրոց">
+    <meta name="author" content="Վանաձորի Ա․Ս․ Պուշկինի անվան N4 հիմնական դպրոց">
+
 
     <style>
         * {
@@ -443,8 +444,8 @@
 
     <!-- Language dropdown -->
     <div id="languageMenu">
-        <button id="hyBtn" onclick="setLanguage('hy')">🇦🇲 ՀԱՅ</button>
-        <button id="ruBtn" onclick="setLanguage('ru')">🇷🇺 РУС</button>
+        <button onclick="location.href='index.html'">🇦🇲 ՀԱՅ</button>
+        <button onclick="location.href='RUindex.html'">🇷🇺 РУС</button>
     </div>
 
     <!-- Mobile menu panel -->
@@ -494,14 +495,6 @@
             menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
         }
 
-        function setLanguage(lang) {
-            document.getElementById('hyBtn').classList.remove('language-selected');
-            document.getElementById('ruBtn').classList.remove('language-selected');
-            if (lang === 'hy') document.getElementById('hyBtn').classList.add('language-selected');
-            if (lang === 'ru') document.getElementById('ruBtn').classList.add('language-selected');
-            document.getElementById('languageMenu').style.display = 'none';
-        }
-
         document.addEventListener('click', (e) => {
             const langBtn = document.getElementById('Select_Language');
             const langMenu = document.getElementById('languageMenu');
@@ -509,6 +502,18 @@
                 langMenu.style.display = 'none';
             }
         });
+
+        function setLanguage(lang) {
+            if (lang === 'ru') {
+                window.location.href = "RUindex.html";
+            }
+
+            if (lang === 'hy') {
+                window.location.href = "index.html";
+            }
+        }   
+
+     
     </script>
 </body>
 </html>

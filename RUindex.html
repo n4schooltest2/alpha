@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Основная школа N4 имени А.С. Пушкина города Ванадзор — Официальный сайт</title>
+
+    <link rel="icon" href="https://learning.digicraft.am/pages/uploads/n4schooltest1/images/Slogo.png" type="image/png">
+
+    <meta name="description" content="Официальный сайт основной школы N4 имени А.С. Пушкина города Ванадзор.">
+    <meta name="keywords" content="Ванадзор, школа N4, Пушкин, основная школа, образование">
+    <meta name="author" content="Основная школа N4 имени А.С. Пушкина города Ванадзор">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            min-height: 100%;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            
+        }
+
+        body {
+            position: relative;
+            background: #000;
+        }
+
+        .background {
+            position: fixed;
+            inset: 0;
+            background: url("https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?q=80&w=1200&auto=format&fit=crop")
+                center center / cover no-repeat;
+            z-index: -2;
+        }
+
+        .background::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at top,
+                rgba(0,0,0,.2),
+                rgba(0,0,0,.55)
+            );
+        }
+
+        /* ========== TOP BAR CONTAINER ========== */
+        .top-bar {
+            position: fixed;
+            top: 16px;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            z-index: 1000;
+            gap: 10px;
+        }
+
+        .button:focus,
+        .menu_square:focus,
+        .menu_square:focus-visible,
+        #Select_Language:focus,
+        #Select_Language:focus-visible {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            flex: 1;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px 0 16px;
+            gap: 8px;
+            max-width: 65%;
+        }
+
+        .nav_logo {
+            height: 46px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav_number {
+            background: linear-gradient(135deg, #0B1F3B, #1E3A8A);
+            padding: 8px 14px;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            white-space: nowrap;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* ========== MENU SQUARE ========== */
+        .menu_square {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 2005;
+            flex-shrink: 0;
+        }
+
+        .menu_square span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* ========== LANGUAGE BUTTON ========== */
+        #Select_Language {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2005;
+            flex-shrink: 0;
+        }
+
+        /* ========== LANGUAGE DROPDOWN ========== */
+        #languageMenu {
+            position: fixed;
+            top: 75px;
+            right: 16px;
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(11, 31, 59, 0.95);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            padding: 8px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1002;
+            min-width: 130px;
+        }
+
+        #languageMenu button {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px 12px;
+            cursor: pointer;
+            border-radius: 13px;
+            text-align: left;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .language-selected {
+            background: rgba(255, 255, 255, 0.2) !important;
+            font-weight: bold;
+        }
+
+        .language-selected::after {
+            content: "✓";
+            margin-left: auto;
+            color: #7CFF7C;
+            font-weight: bold;
+        }
+
+        #languageMenu button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ========== MOBILE MENU PANEL ========== */
+        #mobileMenu {
+            position: fixed;
+            top: 0;
+            right: -260px;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(11, 31, 59, 0.95), rgba(20, 40, 80, 0.9));
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 90px;
+            transition: right 0.3s ease;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #mobileMenu.open {
+            right: 0;
+            Z-index: 2004;
+        }
+
+        #mobileMenu a {
+            padding: 14px 20px;
+            margin: 0 12px;
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        #overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 998;
+        }
+
+        #overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* ========== WELCOME TEXT ========== */
+        .welcome-text {
+            position: fixed;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+            width: 90%;
+            pointer-events: none;
+        }
+
+        .welcome-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #e0c48b);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .welcome-text h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #FEF3C7;
+            margin-bottom: 10px;
+        }
+
+        .welcome-text p {
+            font-size: 1rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .welcome-text::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: #F7C56E;
+            margin: 14px auto 0;
+            border-radius: 2px;
+        }
+
+        .official-name {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        /* ========== WELCOME TEXT ANIMATIONS ONLY ========== */
+
+        .welcome-text {
+            position: fixed;
+            top: 28%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1000;
+            width: 90%;
+            max-width: 800px;
+            pointer-events: none;
+            animation: fadeGlideUp 1s cubic-bezier(0.2, 0.9, 0.3, 1.1) forwards;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 600;
+            font-size: 1.6rem;
+        }
+
+        .welcome-text h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff89, #c9b792, #ffebaf);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 3s linear infinite;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .welcome-text h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin: 0.5rem 0 0;
+            background: linear-gradient(120deg, #FEF3C7, #FFF5E0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.3px;
+        }
+
+        .welcome-text p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1rem 0 0;
+            color: rgba(255, 250, 235, 0.95);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            display: inline-block;
+            padding: 0.4rem 1.5rem;
+            border-radius: 40px;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 215, 150, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .welcome-text::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #FFE6B0, #F7C56E, #FFE6B0);
+            margin: 1.5rem auto 0;
+            border-radius: 4px;
+            animation: expandWidth 1s ease-out 0.5s both;
+        }
+
+        @keyframes fadeGlideUp {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -30%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes expandWidth {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            100% {
+                width: 80px;
+                opacity: 1;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+
+    <div class="background"></div>
+
+    <!-- TOP BAR: navbar + menu square + language button in one row -->
+    <div class="top-bar">
+        <!-- Navbar -->
+        <div class="navbar">
+            <img src="https://learning.digicraft.am/pages/uploads/n4schooltest1/images/Slogo.png" alt="Logo" class="nav_logo">
+            <a href="tel:+37493693441" class="nav_number">+374 93 69 34 41</a>
+        </div>
+
+        <!-- language button  -->
+        <button id="Select_Language" onclick="toggleLanguage()">🌐</button>
+
+        <!-- Menu square -->
+        <div class="menu_square" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Language dropdown -->
+    <div id="languageMenu">
+        <button onclick="location.href='index.html'">🇦🇲 ՀԱՅ</button>
+        <button onclick="location.href='RUindex.html'">🇷🇺 РУС</button>button>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div id="mobileMenu">
+    <a href="#">🏠 Գլխավոր</a>
+    <a href="#">📖 Մեր մասին</a>
+    <a href="#">📰 Նորություններ</a>
+    <a href="support.html">📞 Կապ</a>  
+</div>
+
+    <!-- Overlay -->
+    <div id="overlay"></div>
+
+    <!-- Welcome text -->
+    <div class="welcome-text">
+        <h1>Բարի գալուստ</h1>
+        <h2>Վանաձորի N4 հիմնական դպրոցի</h2>
+        <p>Պաշտոնական կայք</p>
+    </div>
+
+    <p class="official-name">Վանաձորի Ա. Ս. Պուշկինի անվան N4 հիմնական դպրոց</p>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                overlay.classList.remove('active');
+            });
+        });
+
+        function toggleLanguage() {
+            const menu = document.getElementById('languageMenu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+    
+        document.addEventListener('click', (e) => {
+            const langBtn = document.getElementById('Select_Language');
+            const langMenu = document.getElementById('languageMenu');
+            if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                langMenu.style.display = 'none';
+            }
+        });
+
+        function setLanguage(lang) {
+            if (lang === 'ru') {
+                window.location.href = "RUindex.html";
+            }
+
+            if (lang === 'hy') {
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>
